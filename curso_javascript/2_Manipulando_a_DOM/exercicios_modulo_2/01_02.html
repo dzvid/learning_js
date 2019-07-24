@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Exercicio 01/02</title>
+</head>
+<body>
+<!-- Crie um botão que ao ser clicado cria um novo elemento em tela com a forma de um quadrado
+vermelho com 100px de altura e largura. Sempre que o botão for clicado um novo quadrado deve
+aparecer na tela. -->
+    
+    <div class="app">
+        <button id="botaoQuadrado">Add new square</button>
+        <div id="quadrados"></div>
+    </div>
+
+    <script>
+
+        // pegar ref do botao e da div para conteudo
+        var botaoQuadrado = document.getElementById('botaoQuadrado');
+        var quadrados = document.getElementById('quadrados');
+
+        function randomColor(){
+            var r, g, b;
+            r =  Math.random() * 255;
+            g =  Math.random() * 255;
+            b =  Math.random() * 255;
+            return 'rgb(' + r + ', '+ g + ', ' + b +')';
+        }
+
+        botaoQuadrado.onclick = function(){          
+            //criar um quadrado vermelho generico
+            var quadrado = document.createElement('div');
+
+            //estilizo o quadrado generico
+            quadrado.style.width = '100px';
+            quadrado.style.height = '100px';
+            quadrado.style.margin = '5px';
+            quadrado.style.display = 'inline-block';
+            quadrado.style.backgroundColor = randomColor();
+            
+            quadrado.onmouseover = function(){
+                quadrado.style.backgroundColor = randomColor();
+            };
+
+            //adicionar quadrado generico na pagina
+            quadrados.appendChild(quadrado);
+        }
+
+    </script>
+</body>
+</html>

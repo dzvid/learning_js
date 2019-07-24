@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Módulo 1: Exercicios</title>
+</head>
+<body>
+<!-- 
+    <div id="app">
+        <input type="text" id='entradaTexto'>
+        <button onclick="temHabilidade()" id="botaoExecutar">Executar</button>
+    </div>
+     -->
+    <script>
+        // https://station.rocketseat.com.br/api/files/1536602858136.pdf
+    // Exercicio 1
+        // var endereco = {
+        //     rua: "Rua dos pinheiros",
+        //     numero: 1293,
+        //     bairro: "Centro",
+        //     cidade: "São Paulo",
+        //     uf: "SP"
+        // };
+
+        // function enderecoUsuario(endereco){
+        //     return 'O usuário mora em ' + endereco.cidade
+        //             + ' / ' + endereco.uf
+        //             + ', no bairro ' + endereco.bairro
+        //             + ', na rua "' + endereco.rua + '"'
+        //             + ' com nº ' + endereco.numero + '.';
+        // }
+
+        // console.log(enderecoUsuario(endereco));
+
+    // Exercicio 2: Crie uma função que dado um intervalo (entre x e y) exiba todos número pares.
+            // function pares(x, y){
+            //     if (y > x){ 
+            //         for(var i = x; i<=y; i++){
+            //             if(i%2 == 0){
+            //                 console.log(i);
+            //             }
+            //         }
+            //     }else{
+            //         console.log('Intervalo inválido, y deve ser maior que x.')
+            //     }
+                
+            // }
+
+            // pares(32, 321);
+
+    // Exercicio 3: Escreva uma função que verifique se o vetor de habilidades passado possui a habilidade "Javascript"
+    // e retorna um booleano true/false caso exista ou não.
+            // function temHabilidade() {
+                
+            //     var skills = ["Javascript", "ReactJS", "React Native"];
+
+            //     var inputElement = document.getElementById('entradaTexto');
+                
+            //     // código aqui
+            //     var possuiHabilidade = skills.indexOf(inputElement.value);
+            //     if (possuiHabilidade === -1){
+            //         // indexOf Returns -1 if the item is not found.
+            //         // return false;
+            //         console.log('Não possui a habilidade');
+            //     }else{
+            //         // return true; 
+            //         console.log('Possui a habilidade');
+            //     }
+            // }
+            // // console.log(temHabilidade(skills)); // true ou false
+    
+    // Exercicio 4: Escreva uma função que dado um total de anos de estudo retorna o quão experiente o usuário é.
+            // function experiencia(anos) {
+            //     // código aqui
+            //     if(anos >= 0 && anos <= 1){
+            //         return 'Iniciante';
+            //     }else if(anos > 1 && anos <= 3){
+            //         return 'Intermediário';
+            //     }else if(anos > 3 && anos <= 6){
+            //         return 'Avançado';
+            //     }else if(anos >= 7){
+            //         return 'Jedi Master';
+            //     }else{
+            //         return 'Quantidade de anos inválida (negativa)';
+            //     }
+            // }
+            // var anosEstudo = 7;
+            // console.log(experiencia(anosEstudo));
+            // // De 0-1 ano: Iniciante
+            // // De 1-3 anos: Intermediário
+            // // De 3-6 anos: Avançado
+            // // De 7 acima: Jedi Master
+
+        //Exercicio 5: 
+            // function habilidadesUsuarios(usuarios){
+            //     //percorrer lista dos usuarios
+            //         for (var usuario of usuarios){
+            //             //para cada usuario, imprimir habilidades
+            //             var habilidadesUsuario = 'O ' + usuario.nome + ' possui as habilidades: ' + usuario.habilidades.join(', ');
+            //             console.log(habilidadesUsuario);
+            //         }
+            // }
+
+            // var usuarios = [
+            //     {
+            //         nome: "Diego",
+            //         habilidades: ["Javascript", "ReactJS", "Redux"]
+            //     },
+            //     {
+            //         nome: "Gabriel",
+            //         habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+            //     }
+            // ];
+            
+            // habilidadesUsuarios(usuarios);
+    </script>
+</body>
+</html>

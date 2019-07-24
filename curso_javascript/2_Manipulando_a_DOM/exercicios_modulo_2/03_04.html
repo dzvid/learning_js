@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Task 03</title>
+</head>
+<body>
+    
+    <input type="text" name="nome">
+    <button onClick="adicionar()">Adicionar</button>
+    <div id="app">
+    </div>
+
+    </div>
+    <script>
+        var names = ["Diego", "Gabriel", "Lucas"];
+
+        var app = document.getElementById('app');
+
+        // create the list
+        var ulElement = document.createElement('ul');
+        app.appendChild(ulElement);
+
+        var inputElement = document.querySelector('input');
+
+        
+        
+        function addItem(itemList){
+            var ilElement = document.createElement('li');
+            var ilText = document.createTextNode(itemList);
+
+            ilElement.appendChild(ilText);
+            ulElement.appendChild(ilElement);
+        }
+
+        // create an item in the list and add the names to the list
+        for (name of names){
+            addItem(name);
+        }
+
+        function adicionar(){
+            if(inputElement.value !== ''){
+                //Add a new item in the list
+                addItem(inputElement.value);
+
+                //Clear the input
+                inputElement.value = '';
+            }
+        }
+        
+    </script>
+</body>
+</html>

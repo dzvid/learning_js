@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso Javascript</title>
+    </head>
+    <body>
+
+    <!-- Aula Eventos inline -->
+        <!-- <div id="app">
+            <button onmouseover="mostraAlerta()">Me pressione</button>
+            <input onkeypress="mostraAlerta()" type="text">
+        </div>
+    
+        <script>
+            function mostraAlerta(){
+                alert('Botão foi clicado');
+            }           
+        </script> -->
+
+    <!-- Aula Trabalhando com DOM -->
+        <div id="app">
+            <input type="text" name="nome">
+            <button class="botao">Adicionar</button>
+            <div class="box"></div>
+        </div>
+    
+        <script>
+            // O id é unico por elemento por isso getElementById sempre retorna apenas 01 elemento
+            // O tag, class não tem garantia de retornarem apenas um elemento, por isso sempre retornam um array
+            // var inputElement = document.getElementById('nome');
+            // var inputElement = document.getElementsByTagName('input')[0];
+            // var inputElement = document.getElementsByClassName('botao')[0];
+
+
+            // Uma outra forma de buscar os elementos da pagina é utilizando o querySelector
+            // O querySelector permite percorrer a DOM, podendo buscar o elemento de forma exata.
+            // os colchetes referenciam uma propriedade do elemento
+            // var inputElement = document.querySelector('input[name=nome]');
+            // var inputElement = document.querySelector('input[name=nome]');
+            // var btnElement = document.querySelector('button.botao');
+
+            // btnElement.onclick = function (){
+            //     var text = inputElement.value;
+            //     alert(text);
+            // }
+        // Aula Lidando com elementos
+                // // Criando um elemento na DOM
+                
+                // // Crio um elemento do tipo link 
+                // var linkElement = document.createElement('a');
+                // linkElement.setAttribute('href', 'https://rocketseat.com.br');
+
+                // //Crio a descrição do link
+                // var textLinkElement = document.createTextNode('Acessar site da Rocketseat');
+                // linkElement.appendChild(textLinkElement);
+
+                // //Adiciono o link à minha DOM (na div app)
+                // var containerElement = document.querySelector('#app');
+                // containerElement.appendChild(linkElement);
+
+            // Aula Alterando estilos
+                //Busco o elemento em tela
+                var boxElement = document.querySelector('.box');
+                //Estilizo o elemento
+                boxElement.style.width = 100;
+                boxElement.style.height = 100;
+                boxElement.style.backgroundColor = '#F00';
+        </script>
+
+    </body>
+</html>
