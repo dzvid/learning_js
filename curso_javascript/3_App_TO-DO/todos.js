@@ -4,11 +4,12 @@ var inputElement = document.querySelector('#app input');
 var buttonElement = document.querySelector('#app button');
 
 //Text array to store the todos
-var todos = [
-    'Fazer café',
-    'Estudar Javascript',
-    'Acessar comunidade da Rocketseat'
-];
+var todos = JSON.parse(localStorage.getItem('list_todos')) || [];
+//  [
+//      'Fazer café',
+//      'Estudar Javascript',
+//      'Acessar comunidade da Rocketseat'
+//  ];
 
 function renderTodos(){
 
@@ -56,6 +57,7 @@ function addTodo(){
 
     //Render the todo list again
     renderTodos();
+    saveToStorage();
 }
 
 //set the addTodo to the onclick handler
@@ -64,4 +66,10 @@ buttonElement.onclick = addTodo;
 function deleteTodo(pos){
     todos.splice(pos, 1);
     renderTodos();
+    saveToStorage();
+}
+
+//Saving the todos to the local storage (not a database, just browser cache)
+function saveToStorage(){
+    localStorage.setItem('list_todos', JSON.stringify(todos));
 }
