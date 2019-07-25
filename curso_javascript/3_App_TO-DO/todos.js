@@ -45,19 +45,31 @@ function renderTodos(){
 
 renderTodos();
 
+//Checks if the string is empty (only made of spaces or empty(""))
+function isEmptyString(text){
+    if(text !== null && text !== undefined){
+        return /^\s*$/.test(text);
+    }else{
+        //else it is an invalid input (string)
+        return false;
+    }
+}
+
 //Add a todo from the input element to the list
 function addTodo(){
     //get new todo in input value
     var todoText = inputElement.value;
 
-    //add todo text to the todos array
-    todos.push(todoText);
-    //clear the input element
-    inputElement.value = '';
+    if(!isEmptyString(todoText)){
+        //add todo text to the todos array
+        todos.push(todoText);
+        //clear the input element
+        inputElement.value = '';
 
-    //Render the todo list again
-    renderTodos();
-    saveToStorage();
+        //Render the todo list again
+        renderTodos();
+        saveToStorage();
+    }
 }
 
 //set the addTodo to the onclick handler
