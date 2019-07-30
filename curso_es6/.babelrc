@@ -1,0 +1,5 @@
+{
+    // preset-env: Identify the working ambient as the browser
+    "presets": ["@babel/preset-env"],
+    "plugins": ["@babel/plugin-proposal-object-rest-spread"]
+}

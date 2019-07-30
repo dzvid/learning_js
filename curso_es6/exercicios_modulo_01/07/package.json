@@ -1,0 +1,23 @@
+{
+  "name": "curso_es6",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.5.5"
+  },
+  "scripts": {
+    "dev": "babel ./main.js -o ./bundle.js -w",
+    "dev_mod_ex01": "babel ./exercicios_modulo_01/01/main.js -o ./exercicios_modulo_01/01/bundle.js -w",
+    "dev_mod_ex02": "babel ./exercicios_modulo_01/02/main.js -o ./exercicios_modulo_01/02/bundle.js -w",
+    "dev_mod_ex03": "babel ./exercicios_modulo_01/03/main.js -o ./exercicios_modulo_01/03/bundle.js -w",
+    "dev_mod_ex04": "babel ./exercicios_modulo_01/04/main.js -o ./exercicios_modulo_01/04/bundle.js -w",
+    "dev_mod_ex05": "babel ./exercicios_modulo_01/05/main.js -o ./exercicios_modulo_01/05/bundle.js -w",
+    "dev_mod_ex06": "babel ./exercicios_modulo_01/06/main.js -o ./exercicios_modulo_01/06/bundle.js -w",
+    "dev_mod_ex07": "babel ./exercicios_modulo_01/07/main.js -o ./exercicios_modulo_01/07/bundle.js -w"
+
+  }
+}
