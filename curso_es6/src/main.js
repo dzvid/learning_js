@@ -258,15 +258,201 @@
 // Agora em seu arquivo principal import apenas a classe Usuario renomeando - a para ClasseUsuario
 // e chame a função info();
 
-import ClasseUsuario, { idade as IdadeUsuario} from './exercicios/modulo_02/functions';
+// // import ClasseUsuario, { idade as IdadeUsuario} from './exercicios/modulo_02/functions';
 
-ClasseUsuario.info();
+// // ClasseUsuario.info();
+
 // 1.2
 // Em seu arquivo principal importe a variável de idade e exiba a mesma em tela;
-// console.log(idade);
+// // console.log(idade);
 
 // 1.3
 // Em seu arquivo principal importe tanto a classe quanto a variável idade e renomeie a variável idade
 // para IdadeUsuario.
 
-console.log(IdadeUsuario);
+// // console.log(IdadeUsuario);
+
+
+//AULA ASYNC/AWAIT(o await é como se fosse o .then()) (incluido no ES8): Outra forma de trabalhar com programação assincrona
+//     //Precisa instalar uma biblioteca nova para funcionar no babel, pois async/await é um recurso do ES8
+//     //Instala a biblioteca da seguinte forma: yarn add @babel/plugin-transform-async-to-generator -D (precisa referenciar no babelrc)
+//     // e também: yarn add @babel/polyfill -D (precisa referenciar no webpack)
+// // const minhaPromise = () => new Promise ( (resolve, reject) => {
+// //     setTimeout(() => { resolve('OK') }, 2000)
+// // });
+
+// // minhaPromise().then(response => instrucoes ).catch( response => instrucoes);
+
+// // async function executaPromise(){
+// //     //A declaração async torna a função automaticamente numa promise
+// //     //sempre fica envolto de uma function, os awaits executam de forma sequencial
+// //     // const response = await minhaPromise();
+// //     console.log(await minhaPromise());
+// //     console.log(await minhaPromise());
+// // }
+
+// // executaPromise().then( () => console.log('Terminou'));
+
+// //Usanso Arrow funtion
+// // const executaPromise = async () => {
+// //     console.log(await minhaPromise());
+// //     console.log(await minhaPromise());
+// //     console.log(await minhaPromise());
+// // };
+
+// // executaPromise().then( () => console.log('Terminou'));
+
+//AULA CONFIGURANDO AXIOS
+//Adiciona a dependencia: yarn add axios (não é uma dependencia de desenvolvimento por isso está sem o -D)
+
+
+// import axios from 'axios';
+
+// class Api {
+//     static async getUserInfo(username) {
+//         try {
+//             const response = await axios.get(`https://api.github.com/users/${username}`);
+       
+//             console.log(response);            
+//         } catch(err) {
+//             console.warn('Erro na API, usuário não existe!');
+//         }
+//     }
+// }
+
+// Api.getUserInfo('diego3g');
+// Api.getUserInfo('diego3gasdawfvde');
+
+//EXERCICIOS ASYNC/AWAIT
+// Todos os exercícios abaixo necessitam que você esteja com o plugin do Async / Await do Babel e o
+// babel - polyfill devidamente configurados.Em alguns exercícios é necessário instalar o Axios.
+//     Exercício
+// 1. Transforme os seguintes trechos de código utilizando async / await:
+
+// 1.1 Função delay aciona o .then após 1s
+// const delay = () => new Promise(resolve => setTimeout(resolve, 1000));
+
+// async function umPorSegundo() {
+//     await delay();
+//     console.log('1s');
+
+//     await delay();
+//     console.log('2s');
+
+//     await delay();
+//     console.log('3s');
+// }
+
+// // const umPorSegundo = async () => {
+// //     await delay();
+// //     console.log('1s');
+
+// //     await delay();
+// //     console.log('2s');
+
+// //     await delay();
+// //     console.log('3s');
+// // };
+
+// umPorSegundo();
+
+//1.2
+// // import axios from 'axios';
+// // //Função a ser convertida:
+// // // function getUserFromGithub(user) {
+// // //     axios.get(`https://api.github.com/users/${user}`)
+// // //         .then(response => {
+// // //             console.log(response.data);
+// // //         })
+// // //         .catch(err => {
+// // //             console.log('Usuário não existe');
+// // //         })
+// // // }
+
+// // // // Usando Arrow function 
+// // // // const getUserFromGithub = async (user) => {
+// // // //     try{
+// // // //         const response = await axios.get(`https://api.github.com/users/${user}`);
+
+// // // //         console.log(response.data);
+// // // //     }catch(err){
+// // // //         console.log('Usuário não existe');
+// // // //     }
+// // // // };
+
+// // // Usando função
+// // async function getUserFromGithub(user){
+// //     try{
+// //         const response = await axios.get(`https://api.github.com/users/${user}`);
+
+// //         console.log(response.data);
+// //     }catch(err){
+// //         console.log('Usuário não existe');
+// //     }
+// // }
+
+// // getUserFromGithub('diego3g');
+// // getUserFromGithub('diego3g124123');
+
+
+//1.3
+
+// import axios from 'axios';
+
+// //Classe a ser convertida
+// // class Github {
+// //     static getRepositories(repo) {
+// //         axios.get(`https://api.github.com/repos/${repo}`)
+// //             .then(response => {
+// //                 console.log(response.data);
+// //             })
+// //             .catch(err => {
+// //                 console.log('Repositório não existe');
+// //             })
+// //     }
+// // }
+
+// //classe convertida
+// // // class Github{
+// // //     static async getRepositories(repo){
+// // //         try{
+// // //             const response = await axios.get(`https://api.github.com/repos/${repo}`);
+
+// // //             console.log(response.data);
+// // //         }catch(err){
+// // //             console.log('Repositório não existe');
+// // //         }
+// // //     }
+// // // }
+
+// // // Github.getRepositories('rocketseat/rocketseat.com.br');
+// // // Github.getRepositories('rocketseat/dslkvmskv');
+// // // Github.getRepositories('rocketseat/bootcamp-gostack-16');
+
+//1.4
+
+import axios from 'axios';
+
+// enunciado:
+// const buscaUsuario = usuario => {
+//     axios.get(`https://api.github.com/users/${user}`)
+//         .then(response => {
+//             console.log(response.data);
+//         })
+//         .catch(err => {
+//             console.log('Usuário não existe');
+//         });
+// }
+
+// resolução:
+const buscaUsuario = async (usuario) => {
+    try{
+        const response = await axios.get(`https://api.github.com/users/${usuario}`);
+
+        console.log(response.data);
+    }catch(err){
+        console.log('Usuário não existe');
+    }
+};
+
+buscaUsuario('diego3g');
