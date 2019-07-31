@@ -5,6 +5,8 @@
 // yarn add @babel/core
 //Pra usar rest/spread  (é o operador que usa os tres pontos)
 // yarn add @babel/plugin-proposal-object-rest-spread
+//O Babel so controla as depencias no ambiente de desenvolvimento, no ambiente de produção
+//só vai estar o codigo transpilado ja com os arquivos necessarios
 
 // AULA CLASSES
 // //  class List{
@@ -210,3 +212,61 @@
 // // };
 
 // // console.log(usuario);
+
+
+// AULA Webpack
+// Forma de trabalhar com varios pastas/pacotes com codigos javascript e outros recursos
+//O Babel so controla as depencias no ambiente de desenvolvimento, no ambiente de produção
+//só vai estar o codigo transpilado ja com os arquivos necessarios, por isso renomeou pra devDependencias
+    //Instala o webpack: yarn add webpack webpack-cli -D
+    //Cria arquivo de configuracao pro webpack: webpack.config.js
+    //Depois de configurar o webpack.config.js, instalar o babel-loader: yarn add babel-loader -D
+    //Muda o script no package.json pra ao inves de executar o babel, executar o webpack:   "dev": "webpack --mode=development -w"
+
+//AULA import/export
+// // //export default (pra renomear precisa do 'as')
+// // import { sub as subtracao} from './funcoes';
+
+// // //export default (pode renomear a função)
+// // //Um arquivo a ser importado pode ter apenas um export default, mas pode ter
+// // //varios exports comuns, nesse caso a sintaxe ficaria: import somaFunction, { sub } from './soma';
+// // //sendo somaFunction a default, e a sub um export comum
+// // import somaFunction from './soma';
+
+// // console.log(somaFunction(1, 2));
+// // console.log(subtracao(1, 2));
+
+//AULA Webpack dev server: pra organizar o diretorio de trabalho instala
+//a dependencia usando: yarn add webpack-dev-server -D
+//Altera o webpack pra apontar pro servidor onde vai buscar o arquivo inicial (devServer)
+//Altera o script package.json: "dev": "webpack-dev-server --mode=development"
+//O webpackdev no ambiente de desenvolvimento automaticamente gera o bundle.js e importa pro server, sem precisar criar o arquivo no diretorio do projeto
+//No ambiente de produção deve executar o comando 'yarn build' (criar no script "build": "webpack --mode=production"), ai gera o bundle.js pra ser disponibilizado pra aplicação
+
+//EXERCICIOS MODULO_02
+
+// 1º exercício
+// Crie um arquivo chamado functions.js com o seguinte conteúdo:
+// // export const idade = 23;
+// // export default class Usuario {
+// //     static info() {
+// //         console.log('Apenas teste');
+// //     }
+// // }
+
+// 1.1
+// Agora em seu arquivo principal import apenas a classe Usuario renomeando - a para ClasseUsuario
+// e chame a função info();
+
+import ClasseUsuario, { idade as IdadeUsuario} from './exercicios/modulo_02/functions';
+
+ClasseUsuario.info();
+// 1.2
+// Em seu arquivo principal importe a variável de idade e exiba a mesma em tela;
+// console.log(idade);
+
+// 1.3
+// Em seu arquivo principal importe tanto a classe quanto a variável idade e renomeie a variável idade
+// para IdadeUsuario.
+
+console.log(IdadeUsuario);
