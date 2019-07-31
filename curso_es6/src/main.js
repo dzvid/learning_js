@@ -431,28 +431,28 @@
 
 //1.4
 
-import axios from 'axios';
+// // import axios from 'axios';
 
-// enunciado:
-// const buscaUsuario = usuario => {
-//     axios.get(`https://api.github.com/users/${user}`)
-//         .then(response => {
-//             console.log(response.data);
-//         })
-//         .catch(err => {
-//             console.log('Usuário não existe');
-//         });
-// }
+// // // enunciado:
+// // // const buscaUsuario = usuario => {
+// // //     axios.get(`https://api.github.com/users/${user}`)
+// // //         .then(response => {
+// // //             console.log(response.data);
+// // //         })
+// // //         .catch(err => {
+// // //             console.log('Usuário não existe');
+// // //         });
+// // // }
 
-// resolução:
-const buscaUsuario = async (usuario) => {
-    try{
-        const response = await axios.get(`https://api.github.com/users/${usuario}`);
+// // // resolução:
+// // const buscaUsuario = async (usuario) => {
+// //     try{
+// //         const response = await axios.get(`https://api.github.com/users/${usuario}`);
 
-        console.log(response.data);
-    }catch(err){
-        console.log('Usuário não existe');
-    }
-};
+// //         console.log(response.data);
+// //     }catch(err){
+// //         console.log('Usuário não existe');
+// //     }
+// // };
 
-buscaUsuario('diego3g');
+// // buscaUsuario('diego3g');
