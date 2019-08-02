@@ -455,6 +455,8 @@
 // //     }
 // // };
 
+import api from './api';
+
 // // buscaUsuario('diego3g');
 class App{
     constructor(){
@@ -462,6 +464,7 @@ class App{
 
         this.formEl = document.getElementById('repo-form');
         this.listEl = document.getElementById('repo-list');
+        this.inputEl = document.querySelector('input[name=repository');
 
         this.registerHandlers();
     }
@@ -473,15 +476,27 @@ class App{
     }
 
     // Add a repository to the repositories list
-    addRepository(){
+    async addRepository(){
         event.preventDefault();
 
+        const repoInput = this.inputEl.value;
+
+        //check if the input has some text
+        if(repoInput.length === 0)
+            return;
+
+        const response = await api.get(`/repos/${repoInput}`);
+
+        const { name, description, html_url, owner: { avatar_url } } = response.data;
+
         this.repositories.push({
-            name: 'rocketseat.com.br',
-            description: 'Tire a sua ideia do papel e dê vida à sua startup.',
-            avatar_url: 'https://avatars0.githubusercontent.com/u/28929274?v=4',
-            html_url: 'https://github.com/rocketseat'
+            name,
+            description,
+            avatar_url,
+            html_url
         });
+
+        this.clearInput();
 
         this.render();
     }
@@ -489,11 +504,6 @@ class App{
     // Clear the list of repositories and render the list again
     render(){
         this.clearList();
-    }
-
-    // Clear the content of the element list repositories 
-    clearList(){
-        this.listEl.innerHTML = '';
 
         //create and render the element on screen
         this.repositories.forEach(
@@ -521,10 +531,20 @@ class App{
                 listItemEl.appendChild(descriptionEl);
                 listItemEl.appendChild(linkEl);
 
-                    //add item in the list  
+                //add item in the list  
                 this.listEl.appendChild(listItemEl);
             }
         );
+    }
+
+    // Clear the content of the element list repositories 
+    clearList(){
+        this.listEl.innerHTML = '';
+    }
+
+    // Clear the input content 
+    clearInput() {
+        this.inputEl.value = '';
     }
 }
 
