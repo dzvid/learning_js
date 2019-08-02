@@ -474,6 +474,20 @@ class App{
         this.formEl.onsubmit = event => this.addRepository(event);
 
     }
+    
+    //Add an element while fetching the data from the Github API,
+    //after fetching the result, removes the loading element
+    setLoading( loading = true ){
+        if(loading === true){
+            let loadingEl = document.createElement('span');
+            loadingEl.appendChild(document.createTextNode('Carregando...'));
+            loadingEl.setAttribute('id', 'loading');
+
+            this.formEl.appendChild(loadingEl);
+        }else{
+            document.getElementById('loading').remove();
+        }
+    }
 
     // Add a repository to the repositories list
     async addRepository(){
@@ -484,21 +498,30 @@ class App{
         //check if the input has some text
         if(repoInput.length === 0)
             return;
+        
+        this.setLoading();
 
-        const response = await api.get(`/repos/${repoInput}`);
+        try{
+            const response = await api.get(`/repos/${repoInput}`);
 
-        const { name, description, html_url, owner: { avatar_url } } = response.data;
+            const { name, description, html_url, owner: { avatar_url } } = response.data;
 
-        this.repositories.push({
-            name,
-            description,
-            avatar_url,
-            html_url
-        });
+            this.repositories.push({
+                name,
+                description,
+                avatar_url,
+                html_url
+            });
 
-        this.clearInput();
+            this.clearInput();
 
-        this.render();
+            this.render();
+        }catch(err){
+            alert('O repositório não existe');
+        }finally{
+            this.setLoading(false);
+        }
+       
     }
 
     // Clear the list of repositories and render the list again
